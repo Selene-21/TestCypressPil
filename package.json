@@ -1,0 +1,17 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "curso pil automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "J"
+  },
+  "keywords": [
+    "pil"
+  ],
+  "author": "janet",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.17.2"
+  }
+}
