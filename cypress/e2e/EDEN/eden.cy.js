@@ -5,13 +5,13 @@ const edenpage = new Edenpage();
 describe('test sobre la página EDEN ENTRADAS', () => {
   it('verificar subtitulos', () => { 
     cy.visit('https://www.edenentradas.com.ar/sitio/contenido/inicio');
-    edenpage.getsubtitles().first().should('contain text', 'BUSCAR EVENTO')
-    edenpage.getsubtitles().last().should('contain text', 'CALENDARIO DE EVENTOS')
+    edenpage.getsubtitles().first().should('contain.text', 'BUSCAR EVENTO')
+    edenpage.getsubtitles().last().should('contain.text', 'CALENDARIO DE EVENTOS')
   })
 
 it('verificar MENU', () =>{ 
   cy.visit('https://www.edenentradas.com.ar/sitio/contenido/inicio');
-  edenpage.getmenuButtons().eq(0).should('contain text', 'HOME')
+  edenpage.getmenuButtons().eq(0).should('contain.text', 'HOME')
   edenpage.getmenuButtons().eq(1).should('contain.text', 'TODOS')
   edenpage.getmenuButtons().eq(2).should('contain.text', 'AGENDA DEL FINDE')
   edenpage.getmenuButtons().eq(3).should('contain.text', 'RECITALES')

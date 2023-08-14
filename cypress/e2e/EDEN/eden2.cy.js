@@ -6,9 +6,8 @@ describe('test sobre la pagina EDEN ENTRADAS', () => {
       cy.visit('https://www.edenentradas.com.ar/sitio/contenido/inicio')
       EdenHome2.getsubtitles().first().should('contain.text', 'BUSCAR EVENTO')
       EdenHome2.getsubtitles().last().should('contain.text', 'CALENDARIO DE EVENTOS')
-  
-      })
     })
+    
     it('verificar MENU', () => {
       cy.visit('https://www.edenentradas.com.ar/sitio/contenido/inicio')
       EdenHome2.getmenuButtons().eq(0).should('contain.text', 'HOME')
@@ -21,7 +20,8 @@ describe('test sobre la pagina EDEN ENTRADAS', () => {
       EdenHome2.getmenuButtons().eq(7).should('contain.text', 'SALAS')
       })
 
-      it('Verificar página de RECITALES'), () => {
+      it('Verificar página de RECITALES', () => {
         cy.visit('http://www.edenentradas.com.ar/');
         EdenHome2.getmenuButtons().eq(3).click();
-      }
+      })
+    })
