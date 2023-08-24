@@ -2,8 +2,9 @@
 
 class EdenHomelocators {
     constructor() {
-        this.menuButtons = '#navbar a'
-        this.subtitles = 'h5'
+        this.menuButtons = '#navbar a';
+        this.subtitles = 'h5';
+        this.imageLogo = '#header-logo';
     }
 
 }
@@ -18,6 +19,9 @@ export default class EdenHome {
     }
 
     getsubtitles(){
-        return cy.get(this.locators.subtitles)
+        return cy.get(this.locators.subtitles);
+    }
+    getImageLogo(){
+        return cy.get(this.locators.imageLogo);
     }
 }
