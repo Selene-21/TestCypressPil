@@ -3,11 +3,12 @@
 class EdenHomelocators {
     constructor() {
         this.menuButtons = '#navbar a';
+      
         this.subtitles = 'h5';
-        this.imageLogo = '#header-logo';
-    }
-
-}
+      
+        this.imageLogo = '#header-logo'; 
+    } 
+ }   
 
 export default class EdenHome {
     constructor() {
@@ -24,4 +25,4 @@ export default class EdenHome {
     getImageLogo(){
         return cy.get(this.locators.imageLogo);
     }
-}
+ }

@@ -9,6 +9,14 @@ class EdenHome2{
     getimageLogo() {
         return cy.get('#header-logo');
     }
+
+    getCalendartitle() {
+        return cy.get('ui-datepicker-title');
+    }
+
+    getCalendar() {
+        return cy.get('ui-datepicker-title');
+    }
 }
 
 export default new EdenHome2();
