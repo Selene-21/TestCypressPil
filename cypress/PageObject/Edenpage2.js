@@ -17,6 +17,9 @@ class EdenHome2{
     getCalendar() {
         return cy.get('ui-datepicker-title');
     }
+    getSalasblock() {
+        return cy.get('id=div-contenido')
+    }
 }
 
 export default new EdenHome2();

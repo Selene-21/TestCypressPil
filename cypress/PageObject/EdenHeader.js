@@ -4,7 +4,8 @@ class EdenHeaderlocators {
     constructor() {
          //Calendario 
          this.calendartitle = '.ui-datepicker-header';
-         this.calendar = 'ui-datepicker-title';
+         this.calendar = '.ui-datepicker-calendar';
+         this.salasblock = '#container';
      }
     }
 
@@ -18,5 +19,9 @@ class EdenHeaderlocators {
     
         getcalendar(){
             return cy.get(this.locators.calendar);
+        }
+
+        getsalasblock(){
+            return cy.get(this.locators.salasblock);
         }
  }
