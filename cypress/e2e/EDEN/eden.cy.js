@@ -3,14 +3,15 @@ import Edenpage from "../../PageObject/Edenpage"
 const edenpage = new Edenpage();
 
 describe('test sobre la página EDEN ENTRADAS', () => {
+  beforeEach(() => {
+    cy.visit("/");
+  });
   it('verificar subtitulos', () => { 
-    cy.visit('https://www.edenentradas.com.ar/sitio/contenido/inicio');
     edenpage.getsubtitles().first().should('contain.text', 'BUSCAR EVENTO')
     edenpage.getsubtitles().last().should('contain.text', 'CALENDARIO DE EVENTOS')
   })
 
 it('verificar MENU', () =>{ 
-  cy.visit('https://www.edenentradas.com.ar/sitio/contenido/inicio');
   edenpage.getmenuButtons().eq(0).should('contain.text', 'HOME');
   edenpage.getmenuButtons().eq(1).should('contain.text', 'TODOS');
   edenpage.getmenuButtons().eq(2).should('contain.text', 'AGENDA DEL FINDE');
@@ -22,12 +23,10 @@ it('verificar MENU', () =>{
 })
 
 it('verificar RECITALES', () => {
-  cy.visit('https://www.edenentradas.com.ar/');
   edenpage.getmenuButtons().eq(3).click();
 })
 
-it.only('Verificar imagen del Logo', () => {
-  cy.visit('https://www.edenentradas.com.ar/sitio/contenido/inicio');
+it('Verificar imagen del Logo', () => {
   const imgSource = 'https://static.edenentradas.com.ar/sitio/images/logo.gif';
   edenpage.getImageLogo().should('be.visible');
   edenpage.getImageLogo().should('have.attr', 'src', imgSource);

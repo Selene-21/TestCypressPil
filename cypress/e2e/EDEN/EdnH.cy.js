@@ -27,7 +27,7 @@ describe('Test Calendario', () => {
     
     })
 
-    it.only('Verificar Salas', () => {
+    it('Verificar Salas', () => {
         cy.visit('https://www.edenentradas.com.ar/sitio/contenido/salas');
         EdenHeaderlocators.getsalasblock().each((block) => { 
             const titulosSalas = ['SALAS']
@@ -44,5 +44,27 @@ describe('Test Calendario', () => {
             EdenHeaderlocators.getsalasblock().eq($index).should('contain.text', titulo);
         })
     })
+
+    it('Verificar Salas', () => {
+        cy.visit('https://www.edenentradas.com.ar/sitio/contenido/salas');
+        EdenHeaderlocators.getsalasblock().each((block) => { 
+           cy.fixture("Salas").then((File) => { 
+            File.forEach((Salas, $index) => {
+                EdenHeaderlocators.getsalasblock().eq($index).should('contain.text', Salas.titulo);
+                EdenHeaderlocators.getsalasblock().eq($index).should('contain.text', Salas.Address);
+
+           })
+            cy.wrap(block).should('be.visible');
+
+            cy.wrap(block).should('contain.text', titulosSalas[$index])
+
+        
+
+
+        })
+        })
+    })
+
+
 
 })
