@@ -3,9 +3,16 @@ import Edenpage from "../../PageObject/Edenpage"
 const edenpage = new Edenpage();
 
 describe('test sobre la página EDEN ENTRADAS', () => {
-  beforeEach(() => {
+  beforeEach(() => { 
+    //const tamPantalla = Cypress.env("viewportdesktop").device;
+    const tamPantalla = Cypress.env("viewportmobile").device;
+    cy.viewport(tamPantalla);
     cy.visit("/");
   });
+
+  afterEach(() => { 
+    //funcion para desloguearse
+  })
   it('verificar subtitulos', () => { 
     edenpage.getsubtitles().first().should('contain.text', 'BUSCAR EVENTO')
     edenpage.getsubtitles().last().should('contain.text', 'CALENDARIO DE EVENTOS')
