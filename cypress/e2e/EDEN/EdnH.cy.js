@@ -8,15 +8,15 @@ describe('Test Calendario', () => {
         cy.visit('https://www.edenentradas.com.ar/sitio/contenido/inicio');
         const [dia, mes, anio] = Utils.getCompleteDate();
 
-        cy.log(diaActual);
-        cy.log(fechaActual);
+        cy.log(dia, mes, anio);
+        
     
 
-        EdenHeaderlocators.getcalendartitle().should('contain.text', meses[mesActual]);
-        EdenHeaderlocators.getcalendartitle().should('contain.text', anioActual);
+        EdenHeaderlocators.getcalendartitle().should('contain.text', mes);
+        EdenHeaderlocators.getcalendartitle().should('contain.text', anio);
 
         EdenHeaderlocators.getcalendar().find('td').each((cuadradoDia, $index) => {
-            if($index < diaActual){ 
+            if($index < dia){ 
             cy.wrap(cuadradoDia).should('have.class','ui-datepicker-unselectable ui-state-disabled');
         }
         })
