@@ -1,16 +1,12 @@
 /// <reference types= 'cypress'/>
 import EdenHeader from '../../PageObject/EdenHeader'
 const EdenHeaderlocators = new EdenHeader();
+import Utils from '../../PageObject/Utils';
 
 describe('Test Calendario', () => {
-    it('Verificar Calendario', () => { 
+    it.only('Verificar Calendario', () => { 
         cy.visit('https://www.edenentradas.com.ar/sitio/contenido/inicio');
-
-        const fechaActual = new Date();
-        const diaActual = fechaActual.getDate();
-        const mesActual = fechaActual.getMonth();
-        const anioActual = fechaActual.getFullYear();
-        const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre','Noviembre', 'Diciembre']
+        const [dia, mes, anio] = Utils.getCompleteDate();
 
         cy.log(diaActual);
         cy.log(fechaActual);
