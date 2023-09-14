@@ -4,7 +4,9 @@
   "description": "curso pil automation",
   "main": "index.js",
   "scripts": {
-    "test": "J"
+    "test": "J",
+    "cypress:run:EDEN": "npx cypress run --e2e --browser chrome --spec cypress/e2e/EDEN"
+    
   },
   "keywords": [
     "pil"
