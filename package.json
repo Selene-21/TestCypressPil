@@ -6,7 +6,7 @@
   "scripts": {
     "test": "J",
     "cypress:open:desktop": "npx cypress open --e2e --browser chrome -e type=desktop",
-    "cypress:open:mobile": "npx cypress open --e2e --browser chrome -e type=mobile",
+    "cypress:open:mobile": "npx cypress open --e2e --browser chrome -e type=mobile,grepTags=@regression",
     "cypress:open:desktop:edge": "npx cypress open --e2e --browser edge -e type=desktop",
     "cypress:open:mobile:edge": "npx cypress open --e2e --browser edge -e type=mobile",
     "cypress:run:EDEN": "npx cypress run --e2e --browser chrome --spec cypress/e2e/EDEN"

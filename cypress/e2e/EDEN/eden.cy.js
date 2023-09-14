@@ -13,7 +13,7 @@ describe('test sobre la página EDEN ENTRADAS', () => {
   afterEach(() => { 
     //funcion para desloguearse
   })
-  it('verificar subtitulos', () => { 
+  it('verificar subtitulos', { tags: '@regression' }, () => { 
     edenpage.getsubtitles().first().should('contain.text', 'BUSCAR EVENTO')
     edenpage.getsubtitles().last().should('contain.text', 'CALENDARIO DE EVENTOS')
   })
