@@ -2,7 +2,7 @@
 import Edenpage from "../../PageObject/Edenpage"
 const edenpage = new Edenpage();
 
-describe('test sobre la página EDEN ENTRADAS', () => {
+describe('test sobre la página EDEN ENTRADAS', { tags: '@regression' }, () => {
   beforeEach(() => { 
     //const tamPantalla = Cypress.env("viewportdesktop").device;
     const tamPantalla = Cypress.env("viewportmobile").device;

@@ -5,7 +5,7 @@ describe('test sobre la pagina EDEN ENTRADAS', () => {
   beforeEach(() => { 
     cy.openSize();
   });
-  it('verificar subtitulos', { tags: '@regression' }, () => {
+  it('verificar subtitulos', () => {
       EdenHome2.getsubtitles().first().should('contain.text', 'BUSCAR EVENTO');
       EdenHome2.getsubtitles().last().should('contain.text', 'CALENDARIO DE EVENTOS');
     });
