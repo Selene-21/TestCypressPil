@@ -23,13 +23,36 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('openSize', () => { 
-        let tamPantalla;
-        
-        if(cypress.env('type')==="mobile"){ 
-         tamPantalla = Cypress.env("viewportmobile").device; 
-        }else{
-                tamPantalla = Cypress.env("viewportdesktop").device;}
-        cy.viewport(tamPantalla);
-        cy.visit("/");
-})
+
+const Ajv = require("ajv");
+const ajv = new Ajv();
+
+Cypress.Commands.add("openSize", () => {
+  let tamPantalla;
+
+  if (cypress.env("type") === "mobile") {
+    tamPantalla = Cypress.env("viewportmobile").device;
+  } else {
+    tamPantalla = Cypress.env("viewportdesktop").device;
+  }
+  cy.viewport(tamPantalla);
+  cy.visit("/");
+});
+
+Cypress.Commands.add("validarSchema", (schemaName, serviceName) => {
+  cy.fixture(`schemas/${schemaName}.json`).then((schema) => {
+    //hacer algo con el schema
+    cy.fixture(`Autogenerados/${serviceName}.json`).then((dataService) => {
+      const validate = ajv.compile(schema);
+      const valid = validate(dataService);
+      if (!valid) {
+        cy.log(JSON.stringify(validate.errors));
+        throw new Error(
+          `error en el servicio ${JSON.stringify(validate.errors)}`
+        );
+      } else {
+        cy.log(`el schema ${schemaName} se valido correctamente`);
+      }
+    });
+  });
+});
