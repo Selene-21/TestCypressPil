@@ -7,7 +7,7 @@ describe('test sobre la página EDEN ENTRADAS', { tags: '@regression' }, () => {
     //const tamPantalla = Cypress.env("viewportdesktop").device;
     const tamPantalla = Cypress.env("viewportmobile").device;
     cy.viewport(tamPantalla);
-    cy.visit("/");
+    cy.visit("http://www.edenentradas.com.ar/");
   });
 
   afterEach(() => { 
