@@ -29,12 +29,13 @@ describe("Test Servicio", () => {
       method: "GET",
       url: "https://edenapi.edenentradas.com.ar/edenventarestapi/api/contenido/inicio",
     }).then((Response) => {
+      cy.log(`respuesta del servicio de inicio: ${JSON.stringify(Response)}`);
+      expect(Response.status).to.eq(200);
       cy.writeFile(
-        "cypress/fixtures/Autogenerados/llamada.json",
+        "cypress/fixtures/Autogenerados/eventos.json",
         Response.body
       );
-      expect(Response.status).to.eq(200);
     });
-    cy.validarSchema(`llamada`, "llamada_Schema");
+    cy.validarSchema(`llamada_Schema`, "eventos");
   });
 });

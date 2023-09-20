@@ -39,6 +39,11 @@ Cypress.Commands.add("openSize", () => {
   cy.visit("/");
 });
 
+/**
+ * @method validarSchema
+ * @param {String} schemaName - Nombre del archivo que esta dentro de la carpeta fixture/schemas
+ * @param {String} serviceName - Nombre del archivo que esta dentro de la carpeta fixture/Autogenerados
+ */
 Cypress.Commands.add("validarSchema", (schemaName, serviceName) => {
   cy.fixture(`schemas/${schemaName}.json`).then((schema) => {
     //hacer algo con el schema

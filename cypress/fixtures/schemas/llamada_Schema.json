@@ -20,7 +20,7 @@
   "additionalProperties": true,
   "properties": {
     "Eventos": {
-      "type": "string",
+      "type": "array",
       "items": {
         "type": "object",
         "required": [
