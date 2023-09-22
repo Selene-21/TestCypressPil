@@ -27,6 +27,10 @@
 const Ajv = require("ajv");
 const ajv = new Ajv();
 
+/**
+ * Comando para correr test en distintos tamaños de viewport
+ * @method {openSize}
+ */
 Cypress.Commands.add("openSize", () => {
   let tamPantalla;
 
@@ -40,6 +44,7 @@ Cypress.Commands.add("openSize", () => {
 });
 
 /**
+ * Valida la estructura de datos del servicio
  * @method validarSchema
  * @param {String} schemaName - Nombre del archivo que esta dentro de la carpeta fixture/schemas
  * @param {String} serviceName - Nombre del archivo que esta dentro de la carpeta fixture/Autogenerados
@@ -61,3 +66,32 @@ Cypress.Commands.add("validarSchema", (schemaName, serviceName) => {
     });
   });
 });
+
+/**
+ * Llama a un Servicio y verifica la estructura de datos
+ * @method callServiceCheck
+ * @param {string} meth - Metodo: GET/POST/PUT, etc
+ * @param {string} completeUrl - ENDPOINT que se desea verificar
+ * @param {string} schema - Nombre del esquema del servicio
+ * @param {string} fileName - Nombre del archivo que se autogenerara con la respuesta del servicio
+ */
+
+Cypress.Commands.add(
+  "callServiceCheck",
+  (meth, completeUrl, schema, fileName) => {
+    cy.request({
+      method: meth,
+      url: completeUrl,
+    }).then((Response) => {
+      cy.log(
+        `respuesta del servicio de ${fileName}: ${JSON.stringify(Response)}`
+      );
+      expect(Response.status).to.eq(200);
+      cy.writeFile(
+        `cypress/fixtures/Autogenerados/${fileName}.json`,
+        Response.body
+      );
+    });
+    cy.validarSchema(schema, fileName);
+  }
+);
