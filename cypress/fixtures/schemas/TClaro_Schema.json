@@ -1,0 +1,54 @@
+{
+  "type": "object",
+  "required": ["statusCode", "message", "error", "customError"],
+  "properties": {
+    "statusCode": {
+      "type": "number"
+    },
+    "message": {
+      "type": "string"
+    },
+    "error": {
+      "type": "string"
+    },
+    "customError": {
+      "type": "object",
+      "required": ["statusCode", "message", "error"],
+      "properties": {
+        "statusCode": {
+          "type": "number"
+        },
+        "message": {
+          "type": "string"
+        },
+        "error": {
+          "type": "object",
+          "required": [
+            "errorType",
+            "errorContext",
+            "errorOperation",
+            "errorMessage",
+            "errorCode"
+          ],
+          "properties": {
+            "errorType": {
+              "type": "string"
+            },
+            "errorContext": {
+              "type": "string"
+            },
+            "errorOperation": {
+              "type": "string"
+            },
+            "errorMessage": {
+              "type": "string"
+            },
+            "errorCode": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+}
