@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+const userPage = require("../../PageObject/PageUser/UsernPass");
 
 describe("testeando link caidos", () => {
   it("Verificar link en celulares", () => {
@@ -22,6 +23,11 @@ describe("testeando link caidos", () => {
     cy.url().should("include", `${String}`);
     cy.get("h2").should("contain", `${String}`);
   });
+
+  //Uso de locadores
+  userPage.getmail().type(user);
+  userPage.getpass().type(pass);
+  userPage.getsendbtn().click();
 
   //Ejemplo buenas practicas
   const user = cypress.env()[0].user;
