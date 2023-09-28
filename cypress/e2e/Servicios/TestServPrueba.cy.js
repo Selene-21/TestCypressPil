@@ -57,7 +57,7 @@ describe("Test Servicio", () => {
   });
 });
 
-it.only("Verificar servicio con funcion", () => {
+it("Verificar servicio con funcion", () => {
   cy.callServiceCheck(
     "GET",
     "https://edenapi.edenentradas.com.ar/edenventarestapi/api/contenido/inicio",

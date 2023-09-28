@@ -7,7 +7,7 @@ describe("testeando link caidos", () => {
     cy.get("a").contains("celulares Samsung").click();
   });
 
-  it.only("Verificar login", () => {
+  it("Verificar login", () => {
     //Test de prueba para logearse
     // Primero: ingresar a la pagina
     cy.visit("https://tienda.claro.com.ar/home");

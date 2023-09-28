@@ -17,7 +17,7 @@ describe("test sobre la pagina YVYTU", () => {
 
     const menu = ["LA RESERVA", "CABAÑAS", "COMO LLEGAR", "CONTACTO", "DONÁ"];
 
-    cy.get("nav#menu-nav").each((boton, indice) => {
+    YvytuHome.getMenuAllBtn().each((boton, indice) => {
       if (indice != 0) {
         cy.wrap(boton).should("have.text", menu[indice]);
       }

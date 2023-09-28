@@ -4,7 +4,7 @@ const EdenHeaderlocators = new EdenHeader();
 import Utils from "../../PageObject/Utils";
 
 describe("Test Calendario", () => {
-  it.only("Verificar Calendario", () => {
+  it("Verificar Calendario", () => {
     cy.visit("https://www.edenentradas.com.ar/sitio/contenido/inicio");
     const [dia, mes, anio] = Utils.getCompleteDate();
 

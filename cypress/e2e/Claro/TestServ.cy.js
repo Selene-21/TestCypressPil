@@ -11,7 +11,7 @@ describe("Test Servicio sobre pagina de Claro", () => {
     });
   });
 
-  it.only("Verificar servicio con funcion", () => {
+  it("Verificar servicio con funcion", () => {
     cy.callServiceCheck(
       "GET",
       "https://y.clarity.ms/collect",

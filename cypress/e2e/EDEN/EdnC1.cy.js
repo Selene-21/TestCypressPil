@@ -35,7 +35,7 @@ describe("test sobre la página EDEN ENTRADAS", () => {
     edenpage.getmenuButtons().eq(7).should("contain.text", menuBton[7]);
   });
 
-  it.only("verificar RECITALES", () => {
+  it("verificar RECITALES", () => {
     cy.visit("https://www.edenentradas.com.ar/");
     edenpage.getmenuButtons().eq(3).click();
     /*const newUrl = 'https://www.edenentradas.com.ar/sitio/contenido/recitales';
