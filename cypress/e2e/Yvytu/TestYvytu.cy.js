@@ -2,9 +2,10 @@
 const YvytuHome = require("../../PageObject/Yvytu/yvytuHome");
 
 describe("test sobre la pagina YVYTU", () => {
-  it("Verificar barra de navegacion - Iterar en botones pildora", () => {
+  beforeEach(() => {
     cy.visit("https://www.vientosdelaselva.com.ar");
-
+  });
+  it("Verificar barra de navegacion - Iterar en botones pildora", () => {
     const menu = ["LA RESERVA", "CABAÑAS", "COMO LLEGAR", "CONTACTO", "DONÁ"];
 
     YvytuHome.getMenuPillBtn().each((boton, indice) => {
@@ -13,8 +14,6 @@ describe("test sobre la pagina YVYTU", () => {
   });
 
   it("Iterar en botones", () => {
-    cy.visit("https://www.vientosdelaselva.com.ar");
-
     const menu = ["LA RESERVA", "CABAÑAS", "COMO LLEGAR", "CONTACTO", "DONÁ"];
 
     YvytuHome.getMenuAllBtn().each((boton, indice) => {
@@ -22,5 +21,9 @@ describe("test sobre la pagina YVYTU", () => {
         cy.wrap(boton).should("have.text", menu[indice]);
       }
     });
+  });
+
+  it("Verificar comportamiento boton Ir Arriba", () => {
+    YvytuHome.getUpBtn().should("not.exist");
   });
 });

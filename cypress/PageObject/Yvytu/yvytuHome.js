@@ -8,6 +8,10 @@ class YvytuHome {
   getMenuAllBtn() {
     return cy.get("nav#menu-nav");
   }
+
+  getAppBtn() {
+    return cy.get("#btn-scroll-top");
+  }
 }
 
 export default new YvytuHome();
